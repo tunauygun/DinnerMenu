@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/titleFragment">
+
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.example.myapplication.TitleFragment"
+        android:label="Main Menu"
+        tools:layout="@layout/fragment_title">
+        <action
+            android:id="@+id/action_titleFragment_to_typeChooserFragment"
+            app:destination="@id/typeChooserFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_addNewMenuFragment"
+            app:destination="@id/addNewMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNewMenuFragment"
+        android:name="com.example.myapplication.add_menu.AddNewMenuFragment"
+        android:label="Create A New Menu"
+        tools:layout="@layout/fragment_add_new_menu" />
+    <fragment
+        android:id="@+id/typeChooserFragment"
+        android:name="com.example.myapplication.TypeChooserFragment"
+        android:label="Choose A Menu Type"
+        tools:layout="@layout/fragment_type_chooser">
+        <action
+            android:id="@+id/action_typeChooserFragment_to_suggestMenuFragment"
+            app:destination="@id/suggestMenuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/suggestMenuFragment"
+        android:name="com.example.myapplication.suggest_menu.SuggestMenuFragment"
+        android:label="Menu Suggestion"
+        tools:layout="@layout/fragment_suggest_menu">
+        <action
+            android:id="@+id/action_suggestMenuFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+        <argument
+            android:name="dinner_type"
+            app:argType="string" />
+    </fragment>
+</navigation>
